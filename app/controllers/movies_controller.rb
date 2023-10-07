@@ -1,4 +1,14 @@
 class MoviesController < ApplicationController
+
+  def new
+    render({ :template => "movies/new" })
+  end
+
+  def edit 
+    @the_movie = Movie.find(params.fetch("id"))
+    render({ :template => "movies/edit" })
+  end
+
   def index
     matching_movies = Movie.all
 
